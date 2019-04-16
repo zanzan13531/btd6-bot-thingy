@@ -252,7 +252,7 @@ public class bot {
 
 	}
 	
-	public static void click(Robot r) {
+	public static void click(Robot r) throws Exception {
 		r.mousePress(InputEvent.BUTTON1_MASK);
 		Thread.sleep(100);
 		r.mouseRelease(InputEvent.BUTTON1_MASK);
