@@ -53,7 +53,7 @@ public class UI extends JFrame implements KeyListener {
 						System.exit(0); //shuts down the program
 					}
 				});
-				add(hardStop, BorderLayout.NORTH); //places button
+				add(hardStop, BorderLayout.SOUTH); //places button
 			}
 		});
 		this.add(startButton, BorderLayout.NORTH); //places button
