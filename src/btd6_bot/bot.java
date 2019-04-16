@@ -24,7 +24,7 @@ public class bot {
 
 			Thread.sleep(500);
 
-			pressKey(r, KeyEvent.VK_U);
+			pressKey(r, KeyEvent.VK_U); // obyn hotkey
 
 			Thread.sleep(500);
 
@@ -39,43 +39,43 @@ public class bot {
 
 			Thread.sleep(500);
 
-			pressKey(r, KeyEvent.VK_D);
+			pressKey(r, KeyEvent.VK_D); // ninja hotkey
 
 			Thread.sleep(500);
 
-			click(r);
+			click(r); // places ninja
 
 			Thread.sleep(500);
 
-			click(r);
+			click(r); // clicks on ninja
 
 			Thread.sleep(500);
 			
-			pressKey(r, KeyEvent.VK_SPACE);
+			pressKey(r, KeyEvent.VK_SPACE); // starts game
 
 			Thread.sleep(500);
 
-			pressKey(r, KeyEvent.VK_SPACE);
+			pressKey(r, KeyEvent.VK_SPACE); // fast forward's game
 
 			Thread.sleep(500);
 
-			pressKey(r, KeyEvent.VK_SLASH);
+			pressKey(r, KeyEvent.VK_SLASH); // bottom path upgrade (001 ninja)
 
 			Thread.sleep(500);
 
-			pressKey(r, KeyEvent.VK_COMMA);
+			pressKey(r, KeyEvent.VK_COMMA); // top path upgrade (101 ninja)
 
 			Thread.sleep(500);
 
-			pressKey(r, KeyEvent.VK_COMMA);
+			pressKey(r, KeyEvent.VK_COMMA); // top path upgrade (201 ninja)
 
 			Thread.sleep(45000); // 45 secs in
 
-			pressKey(r, KeyEvent.VK_COMMA);
+			pressKey(r, KeyEvent.VK_COMMA); // top path upgrade (301 ninja)
 
 			Thread.sleep(75000); // 2 min in
 
-			pressKey(r, KeyEvent.VK_COMMA);
+			pressKey(r, KeyEvent.VK_COMMA); // top path upgrade (401 ninja)
 
 			Thread.sleep(60000); // 3 min in
 
@@ -86,35 +86,35 @@ public class bot {
 
 			Thread.sleep(500);
 
-			pressKey(r, KeyEvent.VK_S);
+			pressKey(r, KeyEvent.VK_S); // super monkey hotkey
 
 			Thread.sleep(500);
 
-			click(r);
+			click(r); // places super monkey
 
 			Thread.sleep(500);
 
-			click(r);
+			click(r); // clicks on super monkey
 
 			Thread.sleep(60000); // 4 min in
 
-			pressKey(r, KeyEvent.VK_SLASH);
+			pressKey(r, KeyEvent.VK_SLASH); // bottom path upgrade (001 super)
 
 			Thread.sleep(500);
 
-			pressKey(r, KeyEvent.VK_SLASH);
+			pressKey(r, KeyEvent.VK_SLASH); // bottom path upgrade (002 super)
 
 			Thread.sleep(60000); // 5 min in
 
-			pressKey(r, KeyEvent.VK_SLASH);
+			pressKey(r, KeyEvent.VK_SLASH); // bottom path upgrade (003 super)
 
 			Thread.sleep(15000); // 5:15 min in
 
-			pressKey(r, KeyEvent.VK_COMMA);
+			pressKey(r, KeyEvent.VK_COMMA); // top path upgrade (103 super)
 
 			Thread.sleep(60000); // 6:15 min in
 
-			pressKey(r, KeyEvent.VK_COMMA);
+			pressKey(r, KeyEvent.VK_COMMA); // top path upgrade (203 super)
 
 			Thread.sleep(90000); // 7:45 min in
 
@@ -125,11 +125,11 @@ public class bot {
 
 			Thread.sleep(500);
 
-			click(r);
+			click(r); // clicks on freeplay button
 
 			Thread.sleep(3000);
 
-			pressKey(r, KeyEvent.VK_SPACE);
+			pressKey(r, KeyEvent.VK_SPACE); // starts freeplay
 
 			Thread.sleep(3000);
 
@@ -140,7 +140,7 @@ public class bot {
 
 			Thread.sleep(500);
 
-			click(r);
+			click(r); // clicks on settings button
 
 			Thread.sleep(500);
 
@@ -151,7 +151,7 @@ public class bot {
 
 			Thread.sleep(500);
 
-			click(r);
+			click(r); // clicks on restart button
 
 			Thread.sleep(500);
 
@@ -162,19 +162,19 @@ public class bot {
 
 			Thread.sleep(500);
 
-			click(r);
+			click(r); // clicks on confirm restart button
 		}
 
 	}
 	
-	public static void click(Robot r) throws Exception {
+	public static void click(Robot r) throws Exception { // method that clicks
 		r.mousePress(InputEvent.BUTTON1_MASK);
 		Thread.sleep(100);
 		r.mouseRelease(InputEvent.BUTTON1_MASK);
 		Thread.sleep(100);
 	}
 	
-	public static void pressKey(Robot r, int key) throws Exception {
+	public static void pressKey(Robot r, int key) throws Exception { // method that presses a key
 		r.keyPress(key);
 		Thread.sleep(100);
 		r.keyRelease(key);
