@@ -4,6 +4,8 @@ import java.awt.Robot;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
 
+//commit test
+
 public class bot {
 	
 	public static void main(String[] args) throws Exception { // THROW EXCEPTION; you'll need to throw AWTException or
