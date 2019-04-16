@@ -11,7 +11,7 @@ import javax.swing.*;
  * This makes a UI which can listen on the keys that you type.
  * If you type 's' then it will queue a stop, that is it will stop the program after the game is finished, before it confirms restart.
  * If you type 'e' then it will emergency stop, and basically kill the entire JVM. This will not kill BTD6 though, so use it with caution. (i.e. if it's blowing up your computer).
- * @author s-xub
+ * @author ryan
  *
  */
 public class UI extends JFrame implements KeyListener {
