@@ -8,176 +8,145 @@ import java.awt.event.KeyEvent;
 
 public class bot {
 	
-	public static void main(String[] args) throws Exception {
-
-		Robot r = new Robot();//The robot which does stuff
-
+	private Robot r;
+	
+	public bot() throws Exception {
+		this.r = new Robot();
+	}
+	
+	public void run() throws Exception {
 		while (true) {
 
 			Thread.sleep(10000); // just to get everything ready
 
 			// starts in game
-			for (int focus = 0; focus < 8; focus++) {
-				r.mouseMove(581, 385); // go to position of obyn placement
-				Thread.sleep(25);
-			}
+			moveMouse(581, 385); // go to position of obyn placement
 
-			Thread.sleep(500);
-
-			pressKey(r, KeyEvent.VK_U); // obyn hotkey
-
-			Thread.sleep(500);
-
-			click(r);
-
-			Thread.sleep(500);
-
-			for (int focus = 0; focus < 8; focus++) {
-				r.mouseMove(666, 400); // go to position of ninja placement
-				Thread.sleep(25);
-			}
-
-			Thread.sleep(500);
-
-			pressKey(r, KeyEvent.VK_D); // ninja hotkey
-
-			Thread.sleep(500);
-
-			click(r); // places ninja
-
-			Thread.sleep(500);
-
-			click(r); // clicks on ninja
-
-			Thread.sleep(500);
+			pressKey(KeyEvent.VK_U); // obyn hotkey
 			
-			pressKey(r, KeyEvent.VK_SPACE); // starts game
+			click();
 
-			Thread.sleep(500);
+			moveMouse(666, 400); // go to position of ninja placement
 
-			pressKey(r, KeyEvent.VK_SPACE); // fast forward's game
+			pressKey(KeyEvent.VK_D); // ninja hotkey
 
-			Thread.sleep(500);
+			click(); // places ninja			
 
-			pressKey(r, KeyEvent.VK_SLASH); // bottom path upgrade (001 ninja)
+			click(); // clicks on ninja
+			
+			pressKey(KeyEvent.VK_SPACE); // starts game
 
-			Thread.sleep(500);
+			pressKey(KeyEvent.VK_SPACE); // fast forward's game
 
-			pressKey(r, KeyEvent.VK_COMMA); // top path upgrade (101 ninja)
+			pressKey(KeyEvent.VK_SLASH); // bottom path upgrade (001 ninja)
 
-			Thread.sleep(500);
+			pressKey(KeyEvent.VK_COMMA); // top path upgrade (101 ninja)
 
-			pressKey(r, KeyEvent.VK_COMMA); // top path upgrade (201 ninja)
+			pressKey(KeyEvent.VK_COMMA); // top path upgrade (201 ninja)
 
-			Thread.sleep(45000); // 45 secs in
+			Thread.sleep(44500); // 45 secs in
 
-			pressKey(r, KeyEvent.VK_COMMA); // top path upgrade (301 ninja)
+			pressKey(KeyEvent.VK_COMMA); // top path upgrade (301 ninja)
 
-			Thread.sleep(75000); // 2 min in
+			Thread.sleep(74500); // 2 min in
 
-			pressKey(r, KeyEvent.VK_COMMA); // top path upgrade (401 ninja)
+			pressKey(KeyEvent.VK_COMMA); // top path upgrade (401 ninja)
 
-			Thread.sleep(60000); // 3 min in
+			Thread.sleep(59500); // 3 min in
 
-			for (int focus = 0; focus < 8; focus++) {
-				r.mouseMove(659, 311); // go to position of super placement
-				Thread.sleep(25);
-			}
+			moveMouse(659, 311); // go to position of super placement
 
-			Thread.sleep(500);
+			pressKey(KeyEvent.VK_S); // super monkey hotkey
 
-			pressKey(r, KeyEvent.VK_S); // super monkey hotkey
+			click(); // places super monkey
 
-			Thread.sleep(500);
+			click(); // clicks on super monkey
 
-			click(r); // places super monkey
+			Thread.sleep(59500); // 4 min in
 
-			Thread.sleep(500);
+			pressKey(KeyEvent.VK_SLASH); // bottom path upgrade (001 super)
 
-			click(r); // clicks on super monkey
+			pressKey(KeyEvent.VK_SLASH); // bottom path upgrade (002 super)
 
-			Thread.sleep(60000); // 4 min in
+			Thread.sleep(59500); // 5 min in
 
-			pressKey(r, KeyEvent.VK_SLASH); // bottom path upgrade (001 super)
+			pressKey(KeyEvent.VK_SLASH); // bottom path upgrade (003 super)
 
-			Thread.sleep(500);
+			Thread.sleep(14500); // 5:15 min in
 
-			pressKey(r, KeyEvent.VK_SLASH); // bottom path upgrade (002 super)
+			pressKey(KeyEvent.VK_COMMA); // top path upgrade (103 super)
 
-			Thread.sleep(60000); // 5 min in
+			Thread.sleep(59500); // 6:15 min in
 
-			pressKey(r, KeyEvent.VK_SLASH); // bottom path upgrade (003 super)
+			pressKey(KeyEvent.VK_COMMA); // top path upgrade (203 super)
 
-			Thread.sleep(15000); // 5:15 min in
+			Thread.sleep(89500); // 7:45 min in
+			
+			moveMouse(971, 799);
 
-			pressKey(r, KeyEvent.VK_COMMA); // top path upgrade (103 super)
+			click(); // clicks on freeplay button
 
-			Thread.sleep(60000); // 6:15 min in
+			Thread.sleep(2500);
 
-			pressKey(r, KeyEvent.VK_COMMA); // top path upgrade (203 super)
+			pressKey(KeyEvent.VK_SPACE); // starts freeplay
 
-			Thread.sleep(90000); // 7:45 min in
+			Thread.sleep(2500);
 
-			for (int focus = 0; focus < 8; focus++) {
-				r.mouseMove(971, 799); // go to position of freeplay button
-				Thread.sleep(25);
-			}
+			moveMouse(1311, 85);
+			
+			click(); // clicks on settings button
+			
+			moveMouse(925, 800);
+			
+			click(); // clicks on restart button
 
-			Thread.sleep(500);
+			moveMouse(990, 683);
 
-			click(r); // clicks on freeplay button
-
-			Thread.sleep(3000);
-
-			pressKey(r, KeyEvent.VK_SPACE); // starts freeplay
-
-			Thread.sleep(3000);
-
-			for (int focus = 0; focus < 8; focus++) {
-				r.mouseMove(1311, 85); // go to position of settings button
-				Thread.sleep(25);
-			}
-
-			Thread.sleep(500);
-
-			click(r); // clicks on settings button
-
-			Thread.sleep(500);
-
-			for (int focus = 0; focus < 8; focus++) {
-				r.mouseMove(925, 800); // go to position of restart button
-				Thread.sleep(25);
-			}
-
-			Thread.sleep(500);
-
-			click(r); // clicks on restart button
-
-			Thread.sleep(500);
-
-			for (int focus = 0; focus < 8; focus++) {
-				r.mouseMove(990, 683); // go to position of confirm restart button
-				Thread.sleep(25);
-			}
-
-			Thread.sleep(500);
-
-			click(r); // clicks on confirm restart button
+			click(); // clicks on confirm restart button
 		}
-
 	}
 	
-	public static void click(Robot r) throws Exception { // method that clicks
-		r.mousePress(InputEvent.BUTTON1_MASK);
-		Thread.sleep(100);
-		r.mouseRelease(InputEvent.BUTTON1_MASK);
-		Thread.sleep(100);
+	public static void main(String[] args) throws Exception {
+		bot b = new bot();
+		b.run();
 	}
 	
-	public static void pressKey(Robot r, int key) throws Exception { // method that presses a key
-		r.keyPress(key);
+	/**
+	 * Moves the mouse to the specified coordinates.
+	 * @param x The x-coordinate to move the mouse to.
+	 * @param y The y-coordinate to move the mouse to.
+	 * @throws Exception
+	 */
+	public void moveMouse(int x, int y) throws Exception {
+		for (int focus = 0; focus < 8; focus++) {
+			this.r.mouseMove(x, y); // go to position of ninja placement
+			Thread.sleep(25);
+		}
+		
+		Thread.sleep(500);
+	}
+	
+	/**
+	 * Clicks at the current mouse location.
+	 * @throws Exception
+	 */
+	public void click() throws Exception {
+		this.r.mousePress(InputEvent.BUTTON1_MASK);
 		Thread.sleep(100);
-		r.keyRelease(key);
+		this.r.mouseRelease(InputEvent.BUTTON1_MASK);
+		Thread.sleep(600);
+	}
+	
+	/**
+	 * Triggers a keypress.
+	 * @param key The key to press
+	 * @throws Exception
+	 */
+	public void pressKey(int key) throws Exception {
+		this.r.keyPress(key);
+		Thread.sleep(100);
+		this.r.keyRelease(key);
+		Thread.sleep(500);
 	}
 
 }
