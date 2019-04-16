@@ -38,14 +38,14 @@ public class UI extends JFrame implements KeyListener {
 			public void actionPerformed(ActionEvent e) { //actions when pressing the start button
 				thread.start(); //starts the program
 				startButton.setVisible(false); //hides the button
-				softStop = new JButton("Stop at end of cycle"); //creates the soft stop button
+				softStop = new JButton("Stop at end of cycle (or press 's')"); //creates the soft stop button
 				softStop.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) { //action when pressing the softstop button
 						bot.end(); //ends at the end of the cycle
 					}
 				});
 				add(softStop, BorderLayout.NORTH); //places the button
-				hardStop = new JButton("Emergency stop"); //making the hardstop button
+				hardStop = new JButton("Emergency stop (or press 'e')"); //making the hardstop button
 				hardStop.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) { //action when pressing the hardstop button
 						bot.end();
@@ -58,11 +58,12 @@ public class UI extends JFrame implements KeyListener {
 		});
 		this.add(startButton, BorderLayout.NORTH); //places button
 		
-		this.text = new JLabel("Press 's' to stop and 'e' to die.");
+		this.text = new JLabel("BTD6 bot");
 		this.text.setFont(new Font("Consolas", Font.PLAIN, 48)); //text stuff
 		this.add(this.text, BorderLayout.CENTER);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //directions when closed
-		this.pack();
+		//this.pack(); //compacts the size
+		setSize(400, 300); //sets a size
 		this.setVisible(true); //shows the JFrame
 	}
 
