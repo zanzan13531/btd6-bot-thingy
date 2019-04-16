@@ -6,103 +6,117 @@ import java.awt.event.KeyEvent;
 
 // hello
 
-public class bot {
+public class bot implements Runnable {
 	
 	private Robot r;
+	private boolean ended;
 	
 	public bot() throws Exception {
 		this.r = new Robot();
 	}
 	
-	public void run() throws Exception {
-		while (true) {
+	public void end() {
+		this.ended = true;
+	}
+	
+	@Override
+	public void run() {
+		try {
+			while (true) {
 
-			Thread.sleep(10000); // just to get everything ready
+				Thread.sleep(10000); // just to get everything ready
 
-			// starts in game
-			moveMouse(581, 385); // go to position of obyn placement
+				// starts in game
+				moveMouse(581, 385); // go to position of obyn placement
 
-			pressKey(KeyEvent.VK_U); // obyn hotkey
-			
-			click();
+				pressKey(KeyEvent.VK_U); // obyn hotkey
+				
+				click();
 
-			moveMouse(666, 400); // go to position of ninja placement
+				moveMouse(666, 400); // go to position of ninja placement
 
-			pressKey(KeyEvent.VK_D); // ninja hotkey
+				pressKey(KeyEvent.VK_D); // ninja hotkey
 
-			click(); // places ninja			
+				click(); // places ninja			
 
-			click(); // clicks on ninja
-			
-			pressKey(KeyEvent.VK_SPACE); // starts game
+				click(); // clicks on ninja
+				
+				pressKey(KeyEvent.VK_SPACE); // starts game
 
-			pressKey(KeyEvent.VK_SPACE); // fast forward's game
+				pressKey(KeyEvent.VK_SPACE); // fast forward's game
 
-			pressKey(KeyEvent.VK_SLASH); // bottom path upgrade (001 ninja)
+				pressKey(KeyEvent.VK_SLASH); // bottom path upgrade (001 ninja)
 
-			pressKey(KeyEvent.VK_COMMA); // top path upgrade (101 ninja)
+				pressKey(KeyEvent.VK_COMMA); // top path upgrade (101 ninja)
 
-			pressKey(KeyEvent.VK_COMMA); // top path upgrade (201 ninja)
+				pressKey(KeyEvent.VK_COMMA); // top path upgrade (201 ninja)
 
-			Thread.sleep(44500); // 45 secs in
+				Thread.sleep(44500); // 45 secs in
 
-			pressKey(KeyEvent.VK_COMMA); // top path upgrade (301 ninja)
+				pressKey(KeyEvent.VK_COMMA); // top path upgrade (301 ninja)
 
-			Thread.sleep(74500); // 2 min in
+				Thread.sleep(74500); // 2 min in
 
-			pressKey(KeyEvent.VK_COMMA); // top path upgrade (401 ninja)
+				pressKey(KeyEvent.VK_COMMA); // top path upgrade (401 ninja)
 
-			Thread.sleep(59500); // 3 min in
+				Thread.sleep(59500); // 3 min in
 
-			moveMouse(659, 311); // go to position of super placement
+				moveMouse(659, 311); // go to position of super placement
 
-			pressKey(KeyEvent.VK_S); // super monkey hotkey
+				pressKey(KeyEvent.VK_S); // super monkey hotkey
 
-			click(); // places super monkey
+				click(); // places super monkey
 
-			click(); // clicks on super monkey
+				click(); // clicks on super monkey
 
-			Thread.sleep(59500); // 4 min in
+				Thread.sleep(59500); // 4 min in
 
-			pressKey(KeyEvent.VK_SLASH); // bottom path upgrade (001 super)
+				pressKey(KeyEvent.VK_SLASH); // bottom path upgrade (001 super)
 
-			pressKey(KeyEvent.VK_SLASH); // bottom path upgrade (002 super)
+				pressKey(KeyEvent.VK_SLASH); // bottom path upgrade (002 super)
 
-			Thread.sleep(59500); // 5 min in
+				Thread.sleep(59500); // 5 min in
 
-			pressKey(KeyEvent.VK_SLASH); // bottom path upgrade (003 super)
+				pressKey(KeyEvent.VK_SLASH); // bottom path upgrade (003 super)
 
-			Thread.sleep(14500); // 5:15 min in
+				Thread.sleep(14500); // 5:15 min in
 
-			pressKey(KeyEvent.VK_COMMA); // top path upgrade (103 super)
+				pressKey(KeyEvent.VK_COMMA); // top path upgrade (103 super)
 
-			Thread.sleep(59500); // 6:15 min in
+				Thread.sleep(59500); // 6:15 min in
 
-			pressKey(KeyEvent.VK_COMMA); // top path upgrade (203 super)
+				pressKey(KeyEvent.VK_COMMA); // top path upgrade (203 super)
 
-			Thread.sleep(89500); // 7:45 min in
-			
-			moveMouse(971, 799);
+				Thread.sleep(89500); // 7:45 min in
+				
+				moveMouse(971, 799);
 
-			click(); // clicks on freeplay button
+				click(); // clicks on freeplay button
 
-			Thread.sleep(2500);
+				Thread.sleep(2500);
 
-			pressKey(KeyEvent.VK_SPACE); // starts freeplay
+				pressKey(KeyEvent.VK_SPACE); // starts freeplay
 
-			Thread.sleep(2500);
+				Thread.sleep(2500);
 
-			moveMouse(1311, 85);
-			
-			click(); // clicks on settings button
-			
-			moveMouse(925, 800);
-			
-			click(); // clicks on restart button
+				moveMouse(1311, 85);
+				
+				click(); // clicks on settings button
+				
+				moveMouse(925, 800);
+				
+				click(); // clicks on restart button
 
-			moveMouse(990, 683);
-
-			click(); // clicks on confirm restart button
+				moveMouse(990, 683);
+				
+				if (this.ended) {
+					break;
+				}
+				
+				click(); // clicks on confirm restart button
+			}
+		} catch (Exception e) {
+			throw new UnsupportedOperationException(e);
 		}
 	}
 	
