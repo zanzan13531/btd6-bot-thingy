@@ -19,8 +19,11 @@ public class hopefully_a_ui {
 		
 		f.add(p);
 		
+		p.setLayout(null);
 		
-		
+		JLabel test = new JLabel("test");
+		test.setBounds(50, 50, 100, 50);
+		p.add(test);
 		
 		f.setVisible(true);
 		
