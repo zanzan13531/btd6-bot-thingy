@@ -2,6 +2,8 @@ package btd6_bot;
 
 import java.awt.BorderLayout;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
@@ -16,6 +18,7 @@ import javax.swing.*;
  */
 public class UI extends JFrame implements KeyListener {
 	
+	private JButton startButton;
 	private JLabel text;
 	private bot bot;
 	private Thread thread;
@@ -23,10 +26,17 @@ public class UI extends JFrame implements KeyListener {
 	public UI() throws Exception {
 		this.bot = new bot();
 		this.thread = new Thread(this.bot);
-		this.thread.start();
+		
+		this.startButton = new JButton("Start");
+		this.startButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				thread.start();
+			}
+		});
+		this.add(startButton, BorderLayout.NORTH);
 		
 		this.text = new JLabel("Press 's' to stop and 'e' to die.");
-		this.text.setFont(new Font("Trebuchet MS", Font.PLAIN, 48));
+		this.text.setFont(new Font("Consolas", Font.PLAIN, 48));
 		this.add(this.text, BorderLayout.CENTER);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.pack();
@@ -36,8 +46,10 @@ public class UI extends JFrame implements KeyListener {
 	@Override
 	public void keyPressed(KeyEvent arg0) {
 		if (arg0.getKeyCode() == KeyEvent.VK_S) {
+			System.out.println("You pressed 's'.");
 			this.bot.end();
 		} else if (arg0.getKeyCode() == KeyEvent.VK_E) {
+			System.out.println("You pressed 'e'. You will die in 5-10 business days.");
 			this.bot.end();
 			this.thread.interrupt();
 			System.exit(0);
