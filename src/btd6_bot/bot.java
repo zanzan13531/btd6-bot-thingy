@@ -141,6 +141,7 @@ public class bot {
 	 * Triggers a keypress.
 	 * @param key The key to press
 	 * @throws Exception
+	 * @pineapple indent
 	 */
 	public void pressKey(int key) throws Exception {
 		this.r.keyPress(key);
