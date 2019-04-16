@@ -18,37 +18,60 @@ import javax.swing.*;
  */
 public class UI extends JFrame implements KeyListener {
 	
-	private JButton startButton;
+	private JButton startButton; //declaring stuff
+	private JButton softStop;
+	private JButton hardStop;
 	private JLabel text;
 	private bot bot;
 	private Thread thread;
 	
+	/* soft stop means that the bot finishes the current game and then stops
+	 * hard stop means that the entire program immediately stops and
+	 * exits
+	 */
+	
 	public UI() throws Exception {
-		this.bot = new bot();
-		this.thread = new Thread(this.bot);
-		
-		this.startButton = new JButton("Start");
+		this.bot = new bot(); //creates bot
+		this.thread = new Thread(this.bot); //creates thread
+		this.startButton = new JButton("Start"); //making the start button
 		this.startButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				thread.start();
+			public void actionPerformed(ActionEvent e) { //actions when pressing the start button
+				thread.start(); //starts the program
+				startButton.setVisible(false); //hides the button
+				softStop = new JButton("Stop at end of cycle"); //creates the soft stop button
+				softStop.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) { //action when pressing the softstop button
+						bot.end(); //ends at the end of the cycle
+					}
+				});
+				add(softStop, BorderLayout.NORTH); //places the button
+				hardStop = new JButton("Emergency stop"); //making the hardstop button
+				hardStop.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) { //action when pressing the hardstop button
+						bot.end();
+						thread.interrupt();
+						System.exit(0); //shuts down the program
+					}
+				});
+				add(hardStop, BorderLayout.NORTH); //places button
 			}
 		});
-		this.add(startButton, BorderLayout.NORTH);
+		this.add(startButton, BorderLayout.NORTH); //places button
 		
 		this.text = new JLabel("Press 's' to stop and 'e' to die.");
-		this.text.setFont(new Font("Consolas", Font.PLAIN, 48));
+		this.text.setFont(new Font("Consolas", Font.PLAIN, 48)); //text stuff
 		this.add(this.text, BorderLayout.CENTER);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //directions when closed
 		this.pack();
-		this.setVisible(true);
+		this.setVisible(true); //shows the JFrame
 	}
 
 	@Override
-	public void keyPressed(KeyEvent arg0) {
+	public void keyPressed(KeyEvent arg0) { //softstop when 's' key is pressed
 		if (arg0.getKeyCode() == KeyEvent.VK_S) {
 			System.out.println("You pressed 's'.");
 			this.bot.end();
-		} else if (arg0.getKeyCode() == KeyEvent.VK_E) {
+		} else if (arg0.getKeyCode() == KeyEvent.VK_E) { //hardstop when 'e' key is pressed
 			System.out.println("You pressed 'e'. You will die in 5-10 business days.");
 			this.bot.end();
 			this.thread.interrupt();
