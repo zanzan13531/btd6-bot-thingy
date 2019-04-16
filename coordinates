@@ -1,0 +1,24 @@
+obyn: u
+ninja: d
+super: s
+
+top path upgrade: , or <
+middle path upgrade: . or >
+bottom path upgrade: / or ?
+
+play button: (808, 788)
+expert button: (1187, 842)
+dark castle button: (815, 216)
+easy button: (475, 366)
+
+easy easy button: (482, 533)
+deflation button: (1137, 398)
+
+obyn placement: (581, 385)
+ninja placement: (666, 400)
+super placement: (659, 311)
+
+freeplay button: (971, 799)
+settings button: (1311, 85)
+restart button: (925, 800)
+confirm restart button: (990, 683)
