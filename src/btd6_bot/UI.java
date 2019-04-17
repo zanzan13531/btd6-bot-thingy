@@ -37,26 +37,30 @@ public class UI extends JFrame implements KeyListener {
 		this.startButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) { //actions when pressing the start button
 				thread.start(); //starts the program
-				startButton.setVisible(false); //hides the button
-				softStop = new JButton("Stop at end of cycle (or press 's')"); //creates the soft stop button
-				softStop.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) { //action when pressing the softstop button
-						bot.end(); //ends at the end of the cycle
-					}
-				});
-				add(softStop, BorderLayout.NORTH); //places the button
-				hardStop = new JButton("Emergency stop (or press 'e')"); //making the hardstop button
-				hardStop.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) { //action when pressing the hardstop button
-						bot.end();
-						thread.interrupt();
-						System.exit(0); //shuts down the program
-					}
-				});
-				add(hardStop, BorderLayout.SOUTH); //places button
+				setButtonsEnabled(false);
 			}
 		});
 		this.add(startButton, BorderLayout.NORTH); //places button
+		
+		this.softStop = new JButton("Stop at end of cycle (or press 's')"); //creates the soft stop button
+		this.softStop.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) { //action when pressing the softstop button
+				bot.end(); //ends at the end of the cycle
+				setButtonsEnabled(true);
+			}
+		});
+		this.add(this.softStop, BorderLayout.NORTH); //places the button
+		this.hardStop = new JButton("Emergency stop (or press 'e')"); //making the hardstop button
+		this.hardStop.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) { //action when pressing the hardstop button
+				bot.end();
+				thread.interrupt();
+				System.exit(0); //shuts down the program
+			}
+		});
+		this.add(this.hardStop, BorderLayout.SOUTH); //places button
+		
+		this.setButtonsEnabled(true);
 		
 		this.text = new JLabel("BTD6 bot");
 		this.text.setFont(new Font("Consolas", Font.PLAIN, 48)); //text stuff
@@ -88,6 +92,12 @@ public class UI extends JFrame implements KeyListener {
 	@Override
 	public void keyTyped(KeyEvent arg0) {
 		//Do Nothing
+	}
+	
+	private void setButtonsEnabled(boolean bool) {
+		this.startButton.setEnabled(bool);
+		this.softStop.setEnabled(!bool);
+		this.hardStop.setEnabled(!bool);
 	}
 	
 }
