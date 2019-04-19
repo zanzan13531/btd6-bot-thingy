@@ -33,14 +33,6 @@ public class UI extends JFrame implements KeyListener {
 	public UI() throws Exception {
 		this.bot = new bot(); //creates bot
 		this.thread = new Thread(this.bot); //creates thread
-		this.startButton = new JButton("Start"); //making the start button
-		this.startButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) { //actions when pressing the start button
-				thread.start(); //starts the program
-				setButtonsEnabled(false);
-			}
-		});
-		this.add(startButton, BorderLayout.NORTH); //places button
 		
 		this.softStop = new JButton("Stop at end of cycle (or press 's')"); //creates the soft stop button
 		this.softStop.addActionListener(new ActionListener() {
@@ -49,7 +41,8 @@ public class UI extends JFrame implements KeyListener {
 				setButtonsEnabled(true);
 			}
 		});
-		this.add(this.softStop, BorderLayout.NORTH); //places the button
+		this.add(this.softStop, BorderLayout.WEST); //places the button
+		
 		this.hardStop = new JButton("Emergency stop (or press 'e')"); //making the hardstop button
 		this.hardStop.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) { //action when pressing the hardstop button
@@ -60,14 +53,23 @@ public class UI extends JFrame implements KeyListener {
 		});
 		this.add(this.hardStop, BorderLayout.SOUTH); //places button
 		
+		this.startButton = new JButton("Start"); //making the start button
+		this.startButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) { //actions when pressing the start button
+				thread.start(); //starts the program
+				setButtonsEnabled(false);
+			}
+		});
+		this.add(startButton, BorderLayout.NORTH); //places button
+		
 		this.setButtonsEnabled(true);
 		
 		this.text = new JLabel("BTD6 bot");
 		this.text.setFont(new Font("Consolas", Font.PLAIN, 48)); //text stuff
 		this.add(this.text, BorderLayout.CENTER);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //directions when closed
-		//this.pack(); //compacts the size
-		setSize(400, 300); //sets a size
+		this.pack(); //compacts the size
+		//setSize(400, 300); //sets a size
 		this.setVisible(true); //shows the JFrame
 	}
 
@@ -96,6 +98,7 @@ public class UI extends JFrame implements KeyListener {
 	
 	private void setButtonsEnabled(boolean bool) {
 		this.startButton.setEnabled(bool);
+		this.startButton.setVisible(bool);
 		this.softStop.setEnabled(!bool);
 		this.hardStop.setEnabled(!bool);
 	}
