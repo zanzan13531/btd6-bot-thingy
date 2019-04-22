@@ -238,13 +238,13 @@ public class old_bot {
 			Thread.sleep(100);
 			r.keyRelease(KeyEvent.VK_COMMA);
 
-			Thread.sleep(75000); // 6:30 min in
+			Thread.sleep(70000); // 6:25 min in
 
 			r.keyPress(KeyEvent.VK_COMMA); // top path hotkey (203 super)
 			Thread.sleep(100);
 			r.keyRelease(KeyEvent.VK_COMMA);
 
-			Thread.sleep(75000); // 7:45 min in
+			Thread.sleep(70000); // 7:35 min in
 
 			for (int focus = 0; focus < 8; focus++) {
 				r.mouseMove(971, 799); // go to position of freeplay button
