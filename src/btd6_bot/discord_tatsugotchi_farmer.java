@@ -56,7 +56,7 @@ public class discord_tatsugotchi_farmer {
 			Thread.sleep(100);
 			r.keyRelease(KeyEvent.VK_ENTER);
 			
-			wait = 15 + Math.abs(random.nextDouble() * 5);
+			wait = 15 + Math.abs(random.nextDouble() * 15);
 			time = (int) (wait * 1000);
 			
 			Thread.sleep(time);
