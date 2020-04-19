@@ -4,7 +4,7 @@ import java.awt.Robot;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
 
-public class workshop_bot {
+public class discord_tatsugotchi_farmer {
 
 	public static void main(String[] args) throws Exception { // THROW EXCEPTION; you'll need to throw AWTException or
 																// InterruptedException and its just easier to throw the
